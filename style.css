@@ -1,0 +1,395 @@
+/* Base Styles */
+:root {
+  --bg-color: #191528; /* Background color */
+  --text-color: #F4F4F4;   /* Default text color */
+  --accent-color: #00FFFF; /* Blue accent color */
+  --secondary-color: #8A28E2; /* Purple secondary color */
+  --muted-color: #ccc; /* Muted text color */
+  --border-color: #2C2940; /* Border color */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  line-height: 1.6;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Layout */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #0F0C1A;
+}
+
+.hero h1, .logo-text {
+  font-size: 3rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.hero .tagline, .profile-text blockquote, .footer-tagline {
+  font-style: italic;
+  color: var(--secondary-color);
+}
+
+.hero .subtagline, .signature {
+  color: var(--muted-color);
+}
+
+.about-kingceo .profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Profile Section */
+.profile-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid var(--accent-color);
+}
+
+.profile-text {
+  text-align: center;
+}
+
+.profile-text blockquote {
+  font-style: italic;
+  color: var(--secondary-color);
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+}
+
+.signature {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--muted-color);
+}
+
+.about-mainbrane .tagline {
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.vision-mission {
+  background-color: #1F1A3A;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 4rem 2rem;
+}
+
+.vision, .mission {
+  flex: 1 1 300px;
+  padding: 1rem;
+}
+
+.vision h3, .mission h3 {
+  color: var(--accent-color);
+}
+
+.divisions ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.divisions li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.contact a {
+  color: var(--accent-color); /* Use blue accent color for default state */
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.contact a:hover, .contact a:focus {
+  color: var(--accent-color); /* Keep blue accent color on hover and focus */
+}
+
+/* Sticky Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--bg-color);
+  padding: 0.5rem 0; /* Reduced padding for a shorter header */
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Adjust spacing between the logo and text */
+}
+
+.logo-image {
+  width: 35px; /* Slightly smaller logo */
+  height: 35px;
+}
+
+.logo-text {
+  font-size: 2rem; /* Reduced font size for the logo text */
+  font-weight: bold; /* Ensure bold text */
+  color: var(--accent-color); /* Blue accent color */
+  margin: 0;
+  letter-spacing: 0.05rem; /* Slight spacing for better readability */
+}
+
+.logo-link {
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit the text color */
+}
+
+/* Main Navigation Styles */
+.main-nav {
+  display: flex;
+  gap: 0.5rem; /* Add spacing between links */
+  font-size: 1rem; /* Adjust font size */
+  font-weight: bold; /* Make links bold */
+  text-transform: uppercase; /* Optional: Make text uppercase */
+}
+
+.main-nav a {
+  color: var(--text-color); /* Use the default text color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease, border-bottom 0.3s ease; /* Smooth hover effect */
+}
+
+.main-nav a:hover {
+  color: var(--accent-color); /* Change color on hover */
+  border-bottom: 2px solid var(--accent-color); /* Add underline on hover */
+}
+
+.main-nav a.active {
+  color: var(--accent-color); /* Highlight active link */
+  border-bottom: 2px solid var(--accent-color); /* Add underline for active link */
+}
+
+.footer-tagline {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: var(--secondary-color);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--accent-color);
+}
+
+/* Utilities */
+.reveal, .fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-color);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: var(--secondary-color);
+}
+
+.scroll-to-top.show {
+  display: flex; /* Show the button when active */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-to-top.hide {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* Adjust scroll position for sections to account for sticky header */
+section {
+  scroll-margin-top: 111px; /* Adjust this value to match the height of your sticky header */
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .main-nav {
+    display: none; /* Hide the menu by default */
+    flex-direction: column;
+    align-items: center; /* Align links to the center for compactness */
+    justify-content: center;
+    background: var(--bg-color); /* Match the background color */
+    position: absolute;
+    top: 45px; /* Align with the hamburger button */
+    right: 10px; /* Adjust position */
+    padding: 0.3rem 0; /* Minimal padding for compactness */
+    border: 1px solid var(--accent-color); /* Add border for visibility */
+    z-index: 1000;
+    width: 110px; /* Adjust width to fit content */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+
+  .main-nav.active {
+    display: flex; /* Show the menu when active */
+  }
+
+  .main-nav a {
+    color: var(--text-color); /* Use the default text color */
+    text-decoration: none;
+    font-size: 0.85rem; /* Compact font size */
+    padding: 0.2rem 0rem; /* Minimal spacing between links */
+    width: 100%; /* Adjust width to fit content */
+    text-align: center; /* Align text to the center */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .main-nav a:hover {
+    background-color: var(--accent-color); /* Highlight the link on hover */
+    color: var(--bg-color); /* Change text color to contrast with the highlight */
+  }
+
+  .hamburger {
+    display: block; /* Ensure the hamburger menu is visible */
+    font-size: 1.5rem; /* Slightly smaller for compactness */
+    cursor: pointer;
+    color: var(--accent-color);
+  }
+
+  .hero h1 {
+    font-size: 2.2rem; /* Slightly smaller for better fit */
+  }
+  .hero .tagline {
+    font-size: 1rem;
+  }
+  .vision p, .mission p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .profile-image {
+    width: 150px;
+    height: 150px;
+  }
+  .container {
+    padding: 1rem; /* Reduce padding for smaller screens */
+  }
+  .hero {
+    padding: 3rem 1rem; /* Adjust hero section padding */
+  }
+  .logo-text {
+    font-size: 2rem; /* Reduce size for tablets */
+  }
+
+  .site-footer p {
+    font-size: 0.9rem; /* Reduce font size for better fit */
+    line-height: 1.4; /* Adjust line height for readability */
+  }
+}
+
+@media (max-width: 375px) {
+  .hero h1 {
+    font-size: 2rem; /* Further reduce for very small screens */
+  }
+  .hero .tagline {
+    font-size: 0.9rem;
+  }
+  .hero {
+    padding: 2rem 1rem; /* Further reduce padding for very small screens */
+  }
+  .logo-text {
+    font-size: 1.8rem; /* Further reduce size for very small screens */
+  }
+}
+
+/* Footer Styles */
+.site-footer {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 0.5rem 0; /* Reduced padding for a shorter footer */
+  border-top: 1px solid var(--border-color); /* Add a border for separation */
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  text-align: center;
+  font-size: 0.9rem; /* Slightly smaller font size */
+}
+
+.site-footer p {
+  margin: 0.5rem 0; /* Reduce spacing between paragraphs */
+  line-height: 1.4; /* Adjust line height for readability */
+}
+
+.site-footer a {
+  color: var(--accent-color); /* Use the accent color for links */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--secondary-color); /* Change color on hover for better interaction */
+}
+
+/* Hero Section CTA Button */
+.hero .cta-button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color); /* Use the accent color */
+  color: var(--bg-color); /* Contrast text color */
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.hero .cta-button:hover {
+  background-color: var(--secondary-color); /* Change background color on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
