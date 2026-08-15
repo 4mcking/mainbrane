@@ -23,7 +23,7 @@ h1, h2, h3 {
 
 /* Layout */
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: auto;
   padding: 2rem;
 }
@@ -33,6 +33,12 @@ h1, h2, h3 {
   text-align: center;
   padding: 4rem 2rem;
   background: #0F0C1A;
+}
+
+.hero p {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero h1, .logo-text {
@@ -70,6 +76,10 @@ h1, h2, h3 {
   text-align: center;
 }
 
+.about-kingceo .signature {
+  text-align: center;
+}
+
 .profile-text blockquote {
   font-style: italic;
   color: var(--secondary-color);
@@ -79,7 +89,7 @@ h1, h2, h3 {
 }
 
 .signature {
-  margin-top: 2rem;
+  /* margin-top: 1rem; */
   font-size: 1.1rem;
   color: var(--muted-color);
 }
@@ -88,16 +98,25 @@ h1, h2, h3 {
   font-style: italic;
   font-size: 1.2rem;
   color: var(--accent-color);
-  text-align: center;
+  /* text-align: center; */
   margin-top: 2rem;
 }
 
 .vision-mission {
   background-color: #1F1A3A;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
   padding: 4rem 2rem;
+}
+
+.vision-mission .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 4rem;
+  align-items: start;
+}
+
+.vision-mission .container h2 {
+  grid-column: 1 / -1;
+  margin-bottom: 0.5rem;
 }
 
 .vision, .mission {
@@ -225,24 +244,26 @@ html {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   background-color: var(--accent-color);
   color: var(--bg-color);
   border: none;
   border-radius: 50%;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   cursor: pointer;
   display: none; /* Hidden by default */
   justify-content: center;
   align-items: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   z-index: 1000;
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.3s ease, background-color 0.2s ease;
 }
 
 .scroll-to-top:hover {
   background-color: var(--secondary-color);
+  opacity: 1;
 }
 
 .scroll-to-top.show {
@@ -263,6 +284,15 @@ section {
 
 /* Media Queries */
 @media (max-width: 768px) {
+  .vision-mission .container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .vision-mission .container h2 {
+    margin-bottom: 0.25rem;
+  }
+
   .main-nav {
     display: none; /* Hide the menu by default */
     flex-direction: column;
@@ -347,6 +377,56 @@ section {
   }
   .logo-text {
     font-size: 1.8rem; /* Further reduce size for very small screens */
+  }
+}
+
+@media (min-width: 900px) {
+  .about-kingceo .profile {
+    display: grid;
+    grid-template-columns: minmax(220px, 300px) 1fr;
+    grid-template-rows: auto auto;
+    column-gap: 3rem;
+    row-gap: 0.75rem;
+    align-items: start;
+  }
+
+  .profile-image {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .profile-text {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    text-align: left;
+    max-width: 680px;
+  }
+
+  .profile-text blockquote {
+    margin: 0.75rem 0 1rem;
+  }
+
+  .about-kingceo .signature {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
+    /* margin-top: 0; */
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 17px;
+  }
+
+  .hero h1 {
+    font-size: 3.4rem;
+  }
+
+  section {
+    scroll-margin-top: 88px;
   }
 }
 
