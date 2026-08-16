@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+  // Measure the sticky header so CSS can size the hero/scroll offsets against its real height
+  const header = document.querySelector(".site-header");
+  const setHeaderHeight = () => {
+    document.documentElement.style.setProperty("--header-height", `${header.offsetHeight}px`);
+  };
+
+  if (header) {
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
+  }
+
   // Navbar toggle for mobile view
   const hamburger = document.getElementById("hamburger");
   const nav = document.getElementById("mainNav");
