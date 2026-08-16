@@ -21,3 +21,6 @@ Thumbs.db
 desktop.ini
 __pycache__/
 *.pyc
+
+# Social/profile exports, generated from assets/mb-mark.svg
+brand/
