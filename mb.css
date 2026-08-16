@@ -1,0 +1,892 @@
+/* ============================================================
+   Mainbrane — v2
+   Palette is derived from the logo mark: a circuit-brain whose
+   magenta and cyan hemispheres meet at a violet seam. That seam
+   is the "brane", and it is the organizing motif of the page.
+   ============================================================ */
+
+:root {
+  /* Ground — matches the logo's deep navy, not a muddy purple-grey */
+  --void:        #070B18;
+  --void-lift:   #0C1122;
+  --hairline:    #1A2138;
+
+  /* The mark's own spectrum */
+  --magenta:     #FF3DA6;
+  --violet:      #7C5CFF;
+  --cyan:        #22E0F5;
+
+  /* Ink */
+  --ink:         #EAECF5;
+  --ink-soft:    #B9BFD4;
+  --ink-muted:   #868DA6;
+
+  --masthead-h:  64px;
+
+  --shell:       1060px;
+  --gutter:      clamp(1.25rem, 4vw, 3rem);
+
+  --seam: linear-gradient(90deg, var(--magenta), var(--violet) 52%, var(--cyan));
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--void);
+  color: var(--ink);
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.0625rem);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+::selection { background: var(--violet); color: #fff; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.skip-link {
+  position: absolute; left: 50%; top: 0;
+  transform: translate(-50%, -120%);
+  z-index: 200;
+  background: var(--ink); color: var(--void);
+  padding: 0.6rem 1rem; border-radius: 0 0 6px 6px;
+  font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+:where(a, button):focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.shell {
+  width: 100%;
+  min-width: 0; /* allow shrinking when used as a flex item */
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 100;
+  background: color-mix(in srgb, var(--void) 82%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.masthead-inner {
+  height: var(--masthead-h);
+  max-width: var(--shell);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.mark-glyph {
+  width: 28px;
+  height: 28px;
+  color: var(--cyan);
+  transition: color 0.25s ease;
+}
+
+.mark:hover .mark-glyph { color: var(--magenta); }
+
+.mark-word {
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 118, 'wght' 700;
+  font-size: 1.0625rem;
+  letter-spacing: 0.01em;
+}
+
+.nav {
+  display: flex;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  font-size: 0.8125rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.nav a {
+  position: relative;
+  color: var(--ink-soft);
+  text-decoration: none;
+  padding-block: 0.35rem;
+  transition: color 0.2s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.nav a:hover { color: var(--ink); }
+.nav a:hover::after { transform: scaleX(1); }
+
+.menu-toggle {
+  display: none;
+  width: 40px; height: 40px;
+  align-items: center; justify-content: center;
+  flex-direction: column; gap: 5px;
+  background: none; border: 0; cursor: pointer;
+  padding: 0;
+}
+
+.menu-bar {
+  display: block;
+  width: 20px; height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  padding-top: var(--masthead-h);
+  padding-bottom: clamp(3rem, 8vh, 6rem);
+  overflow-x: clip;
+}
+
+/* Routed traces terminating in rings — the same vocabulary as the logo mark.
+   Masked away from the left so it never sits under the type. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("assets/hero-field.svg") no-repeat right center;
+  background-size: auto 108%;
+  opacity: 0.24;
+  -webkit-mask-image: linear-gradient(90deg, transparent 30%, #000 78%);
+  mask-image: linear-gradient(90deg, transparent 30%, #000 78%);
+  pointer-events: none;
+}
+
+.hero-shell { position: relative; z-index: 1; }
+
+/* Every child margin is set explicitly — no browser defaults leak in and
+   throw the optical centering off. */
+.hero-shell > * { margin: 0; }
+
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  margin-bottom: clamp(1.25rem, 3vh, 2rem) !important;
+}
+
+.brane-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+/* The mark's own hemispheres meet at a vertical seam; the brane crosses it
+   here, so the page's boundary line and the logo's are the same line. */
+.seal {
+  width: clamp(88px, 13vw, 176px);
+  height: auto;
+  flex: none;
+  opacity: 0.95;
+  mix-blend-mode: screen;
+  -webkit-mask-image: radial-gradient(circle, #000 52%, transparent 71%);
+  mask-image: radial-gradient(circle, #000 52%, transparent 71%);
+}
+
+.wordmark {
+  margin: 0;
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 122, 'wght' 700;
+  font-size: clamp(2.125rem, 10.5vw, 10rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
+
+.lede {
+  margin-top: clamp(1.75rem, 4vh, 2.75rem) !important;
+  max-width: 46ch;
+  font-size: clamp(1.0625rem, 1rem + 0.45vw, 1.3125rem);
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
+.actions {
+  margin-top: clamp(1.75rem, 4vh, 2.5rem) !important;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.8rem 1.4rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-solid {
+  color: var(--void);
+  background: var(--cyan);
+}
+
+.btn-solid:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--cyan) 84%, #fff);
+}
+
+.btn-quiet {
+  color: var(--ink-soft);
+  border: 1px solid var(--hairline);
+  background: transparent;
+}
+
+.btn-quiet:hover {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--cyan) 55%, var(--hairline));
+}
+
+/* The name explains itself: Mainframe + Membrane */
+.etymology {
+  margin-top: clamp(2.5rem, 6vh, 3.75rem) !important;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--hairline);
+  max-width: 26rem;
+}
+
+.etymology-formula {
+  margin: 0;
+  font-size: 0.8125rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.etymology-formula .op {
+  color: var(--magenta);
+  margin-inline: 0.4rem;
+}
+
+.etymology-gloss {
+  margin: 0.35rem 0 0;
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 1.0625rem;
+  color: var(--ink-muted);
+}
+
+/* One line on desktop; the space is only needed when it stays inline */
+.gloss-tail::before { content: " "; }
+
+/* ---------- Section furniture ---------- */
+
+.label {
+  position: relative;
+  margin: 0 0 1.75rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Echoes the circuit terminals in the logo mark */
+.node {
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  border: 1.5px solid var(--magenta);
+  background: var(--void);
+  flex: none;
+}
+.node-mid { border-color: var(--violet); }
+.node-end { border-color: var(--cyan); }
+
+.section-title {
+  margin: 0 0 2.5rem;
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 115, 'wght' 700;
+  font-size: clamp(1.875rem, 1.4rem + 2.2vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- The dyad: creator + creation on one spine ---------- */
+
+.dyad {
+  padding-block: clamp(4.5rem, 12vh, 8rem);
+}
+
+.dyad-shell { position: relative; }
+
+/* The spine is the brane turned vertical — it physically joins the two. */
+.spine {
+  position: absolute;
+  left: calc(var(--gutter) + 4px);
+  top: 4px;
+  bottom: 4px;
+  width: 1px;
+  background: linear-gradient(180deg,
+    var(--magenta),
+    var(--violet) 50%,
+    var(--cyan));
+  opacity: 0.45;
+}
+
+.movement { padding-left: 2.25rem; }
+.movement + .movement { margin-top: clamp(3.5rem, 9vh, 6rem); }
+
+.movement .label { margin-left: -2.25rem; }
+
+.creator-grid {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.portrait { margin: 0; }
+
+.portrait img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--cyan) 40%, var(--hairline));
+  padding: 3px;
+}
+
+.portrait figcaption {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+  width: 180px;
+  text-align: center;
+}
+
+.portrait strong {
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 112, 'wght' 600;
+  font-size: 1.0625rem;
+}
+
+.portrait span {
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+.creation-grid {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.essence { margin: 0; }
+
+.essence img {
+  width: 100%;
+  height: auto;
+  /* The feather is baked into the asset's alpha channel and its ground is crushed
+     to true black, so `screen` adds nothing to the page and no edge can appear.
+     A CSS mask is deliberately not used — it can only fade what the file already
+     paints, which is what left a visible rectangle before. */
+  mix-blend-mode: screen;
+}
+
+.prose { max-width: 62ch; }
+.prose-wide { max-width: 68ch; }
+
+.prose p { margin: 0 0 1.15rem; color: var(--ink-soft); }
+.prose p:last-child { margin-bottom: 0; }
+
+/* The single serif moment on the page. Used once, deliberately. */
+.pull {
+  margin: 0 0 1.75rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--violet);
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.25rem, 1.1rem + 0.9vw, 1.75rem);
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.statement {
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 110, 'wght' 500;
+  font-size: clamp(1.25rem, 1.1rem + 0.85vw, 1.6875rem);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  color: var(--ink) !important;
+  margin-bottom: 1.75rem !important;
+}
+
+.tenets {
+  margin: clamp(2.25rem, 5vh, 3rem) 0 0;
+  display: grid;
+  gap: 1.5rem 3rem;
+  max-width: 68ch;
+}
+
+.tenet {
+  display: grid;
+  gap: 0.4rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--hairline);
+}
+
+.tenet dt {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.tenet dd {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.closer {
+  margin: clamp(2rem, 5vh, 2.75rem) 0 0;
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 1.1875rem;
+  color: var(--ink-muted);
+}
+
+/* ---------- Selected work ---------- */
+
+.work {
+  padding-block: clamp(4.5rem, 12vh, 8rem);
+  border-top: 1px solid var(--hairline);
+}
+
+.projects {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1px;
+  background: var(--hairline);
+  border-block: 1px solid var(--hairline);
+}
+
+.project {
+  background: var(--void);
+  padding: 1.75rem clamp(1rem, 2vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: background 0.25s ease;
+}
+
+.project:hover { background: var(--void-lift); }
+
+.project h3 {
+  margin: 0;
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 112, 'wght' 600;
+  font-size: 1.1875rem;
+  letter-spacing: -0.01em;
+}
+
+.project p { margin: 0; color: var(--ink-soft); }
+
+.project .stack {
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+}
+
+.project-link {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  align-self: start;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.project-link span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.project-link:hover span { transform: translateX(4px); }
+
+.writing {
+  margin: 2rem 0 0;
+  color: var(--ink-muted);
+}
+
+.writing a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.writing a span {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.writing a:hover span { transform: translateX(4px); }
+
+/* ---------- Contact ---------- */
+
+.contact {
+  padding-block: clamp(4.5rem, 12vh, 8rem);
+  border-top: 1px solid var(--hairline);
+  background: var(--void-lift);
+}
+
+.channels {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 780px;
+}
+
+.channels li { border-top: 1px solid var(--hairline); }
+.channels li:last-child { border-bottom: 1px solid var(--hairline); }
+
+.channels a {
+  display: grid;
+  grid-template-columns: auto 7rem 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.15rem 0.25rem;
+  text-decoration: none;
+  color: var(--ink-soft);
+  transition: color 0.2s ease, padding-left 0.25s ease;
+}
+
+.channel-icon {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+  color: var(--ink-muted);
+  transition: color 0.2s ease, transform 0.25s ease;
+}
+
+.channel-name {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  transition: color 0.2s ease;
+}
+
+.channel-value {
+  font-family: 'Archivo', sans-serif;
+  font-variation-settings: 'wdth' 110, 'wght' 500;
+  font-size: clamp(1rem, 0.95rem + 0.35vw, 1.1875rem);
+  color: var(--ink);
+}
+
+.channel-arrow {
+  color: var(--ink-muted);
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.channels a:hover { padding-left: 0.9rem; }
+.channels a:hover .channel-name { color: var(--cyan); }
+.channels a:hover .channel-icon { color: var(--cyan); }
+.channels a:hover .channel-arrow { transform: translateX(5px); color: var(--cyan); }
+
+/* ---------- Colophon ---------- */
+
+.colophon {
+  border-top: 1px solid var(--hairline);
+  padding-block: 2.25rem;
+  font-size: 0.875rem;
+  color: var(--ink-muted);
+}
+
+.colophon-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+}
+
+.colophon p { margin: 0; }
+
+.colophon-tag {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+}
+
+/* ---------- Scroll jump ---------- */
+
+.scroll-jump {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  background: color-mix(in srgb, var(--void-lift) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s;
+}
+
+.scroll-jump.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.jump-btn {
+  width: 36px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: var(--ink-soft);
+  font-size: 0.8125rem;
+  line-height: 1;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.jump-btn + .jump-btn { border-top: 1px solid var(--hairline); }
+
+.jump-btn:hover:not(:disabled) {
+  color: var(--cyan);
+  background: color-mix(in srgb, var(--cyan) 12%, transparent);
+}
+
+.jump-btn:disabled {
+  opacity: 0.28;
+  cursor: default;
+}
+
+/* ---------- Typewriter ---------- */
+
+.is-typing::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin-left: 3px;
+  vertical-align: -0.12em;
+  background: var(--cyan);
+  animation: caret 0.9s steps(1) infinite;
+}
+
+@keyframes caret {
+  50% { opacity: 0; }
+}
+
+/* ---------- Reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.3, 1),
+              transform 0.7s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.reveal.is-in { opacity: 1; transform: none; }
+
+.hero .reveal:nth-child(1) { transition-delay: 0.05s; }
+.hero .reveal:nth-child(2) { transition-delay: 0.14s; }
+.hero .reveal:nth-child(3) { transition-delay: 0.26s; }
+.hero .reveal:nth-child(4) { transition-delay: 0.36s; }
+
+/* ---------- Responsive ---------- */
+
+@media (min-width: 760px) {
+  .creator-grid { grid-template-columns: 180px 1fr; }
+  .creation-grid { grid-template-columns: 1fr minmax(200px, 290px); }
+  .tenets { grid-template-columns: 1fr 1fr; }
+  .projects { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 759px) {
+  .menu-toggle { display: flex; }
+
+  .nav {
+    position: absolute;
+    top: var(--masthead-h);
+    right: var(--gutter);
+    flex-direction: column;
+    gap: 0;
+    min-width: 180px;
+    padding: 0.5rem 0;
+    background: var(--void-lift);
+    border: 1px solid var(--hairline);
+    border-radius: 10px;
+    box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.9);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  }
+
+  .nav.is-open { opacity: 1; visibility: visible; transform: none; }
+
+  .nav a { padding: 0.7rem 1.1rem; }
+  .nav a::after { display: none; }
+  .nav a:hover { background: color-mix(in srgb, var(--violet) 16%, transparent); }
+
+  .menu-toggle[aria-expanded="true"] .menu-bar:first-child {
+    transform: translateY(3.25px) rotate(45deg);
+  }
+  .menu-toggle[aria-expanded="true"] .menu-bar:last-child {
+    transform: translateY(-3.25px) rotate(-45deg);
+  }
+
+  /* The wordmark owns the small-screen hero; the mark is already in the masthead */
+  .seal { display: none; }
+  .wordmark { font-size: clamp(2.5rem, 13.5vw, 4.5rem); }
+
+  /* Centred on small screens, the way the original read */
+  .hero-shell,
+  .dyad-shell,
+  .work .shell,
+  .contact .shell { text-align: center; }
+
+  .lede, .prose, .prose-wide, .tenets, .channels, .etymology {
+    margin-inline: auto;
+  }
+
+  .essence { max-width: 280px; margin-inline: auto; }
+
+  .label { justify-content: center; }
+
+  /* The spine is a desktop device; centred text has nothing to hang off it */
+  .spine, .node { display: none; }
+  .movement { padding-left: 0; }
+  .movement .label { margin-left: 0; }
+
+  .pull {
+    padding-left: 0;
+    padding-top: 1rem;
+    border-left: 0;
+    border-top: 1px solid var(--violet);
+  }
+
+  .creator-grid { justify-items: center; }
+  .portrait img { width: 148px; height: 148px; }
+  .portrait figcaption { width: auto; text-align: center; }
+
+  .actions { justify-content: center; }
+  .tenet { text-align: center; }
+
+  .project { align-items: center; text-align: center; }
+  .project-link { align-self: center; }
+
+  /* Icon and label share a line, the handle sits under them. Flex rather than
+     grid: a full-width grid item would stretch the columns and push the icon
+     away from its label by however wide the handle happens to be. */
+  .channels a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem 0.55rem;
+    text-align: center;
+  }
+  .channel-value { flex-basis: 100%; }
+  .channels a:hover { padding-left: 0; }
+  .channel-arrow { display: none; }
+
+  .colophon-inner { justify-content: center; text-align: center; }
+
+  /* The wordmark is the only flex child left; centre it with the rest */
+  .brane-block { justify-content: center; }
+
+  /* Break the gloss onto its own line on small screens */
+  .gloss-tail { display: block; }
+  .gloss-tail::before { content: none; }
+
+  /* Tighter still on small screens, and closer into the corner */
+  .scroll-jump {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+
+  .jump-btn {
+    width: 32px;
+    height: 29px;
+    font-size: 0.75rem;
+  }
+
+  /* Fill the whole hero instead of showing a right-hand slice of the field */
+  .hero::before {
+    opacity: 0.15;
+    background-position: center;
+    background-size: cover;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 92%);
+    mask-image: linear-gradient(180deg, #000 0%, #000 52%, transparent 92%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none">
+<g stroke-width="1.5" stroke-linecap="round" fill="none">
+<path d="M 1210 202 L 1074 202 Q 1060 202 1060 216 L 1060 266 Q 1060 280 1046 280 L 430 280" stroke="#FF3DA6" stroke-opacity="0.55" />
+<path d="M 1210 670 L 954 670 Q 940 670 940 656 L 940 606 Q 940 592 926 592 L 790 592" stroke="#7C5CFF" stroke-opacity="0.62" />
+<path d="M 1210 774 L 1074 774 Q 1060 774 1060 760 L 1060 710 Q 1060 696 1046 696 L 790 696" stroke="#22E0F5" stroke-opacity="0.58" />
+<path d="M 1210 410 L 894 410 Q 880 410 880 396 L 880 372 Q 880 358 866 358 L 790 358" stroke="#FF3DA6" stroke-opacity="0.55" />
+<path d="M 1210 618 L 894 618 Q 880 618 880 632 L 880 682 Q 880 696 866 696 L 430 696" stroke="#7C5CFF" stroke-opacity="0.62" />
+<path d="M 1210 254 L 954 254 Q 940 254 940 240 L 940 190 Q 940 176 926 176 L 790 176" stroke="#22E0F5" stroke-opacity="0.58" />
+<path d="M 1210 722 L 954 722 Q 940 722 940 736 L 940 760 Q 940 774 926 774 L 700 774" stroke="#FF3DA6" stroke-opacity="0.55" />
+<path d="M 1210 514 L 954 514 Q 940 514 940 500 L 940 450 Q 940 436 926 436 L 790 436" stroke="#7C5CFF" stroke-opacity="0.62" />
+<path d="M 1210 462 L 1014 462 Q 1000 462 1000 448 L 1000 424 Q 1000 410 986 410 L 430 410" stroke="#22E0F5" stroke-opacity="0.58" />
+<path d="M 1210 98 L 954 98 Q 940 98 940 112 L 940 136 Q 940 150 926 150 L 430 150" stroke="#FF3DA6" stroke-opacity="0.55" />
+<path d="M 1210 46 L 894 46 Q 880 46 880 32 L 880 -18 Q 880 -32 866 -32 L 790 -32" stroke="#7C5CFF" stroke-opacity="0.62" />
+<path d="M 1210 566 L 954 566 Q 940 566 940 580 L 940 630 Q 940 644 926 644 L 790 644" stroke="#22E0F5" stroke-opacity="0.58" />
+<path d="M 1210 358 L 1074 358 Q 1060 358 1060 372 L 1060 396 Q 1060 410 1046 410 L 700 410" stroke="#FF3DA6" stroke-opacity="0.55" />
+<path d="M 1210 150 L 1074 150 Q 1060 150 1060 164 L 1060 188 Q 1060 202 1046 202 L 610 202" stroke="#7C5CFF" stroke-opacity="0.62" />
+<path d="M 1210 306 L 954 306 Q 940 306 940 292 L 940 268 Q 940 254 926 254 L 520 254" stroke="#22E0F5" stroke-opacity="0.58" />
+<path d="M 1210 143 L 1120 143" stroke="#FF3DA6" stroke-opacity="0.44" />
+<path d="M 1210 597 L 1120 597" stroke="#7C5CFF" stroke-opacity="0.50" />
+<path d="M 1210 411 L 1120 411" stroke="#22E0F5" stroke-opacity="0.46" />
+<path d="M 1210 354 L 1080 354" stroke="#FF3DA6" stroke-opacity="0.44" />
+<path d="M 1210 180 L 1120 180" stroke="#7C5CFF" stroke-opacity="0.50" />
+<path d="M 1210 228 L 1120 228" stroke="#22E0F5" stroke-opacity="0.46" />
+<circle cx="430" cy="280" r="4.5" stroke="#FF3DA6" stroke-opacity="0.55" />
+<circle cx="790" cy="592" r="4.5" stroke="#7C5CFF" stroke-opacity="0.62" />
+<circle cx="790" cy="696" r="4.5" stroke="#22E0F5" stroke-opacity="0.58" />
+<circle cx="790" cy="358" r="4.5" stroke="#FF3DA6" stroke-opacity="0.55" />
+<circle cx="430" cy="696" r="4.5" stroke="#7C5CFF" stroke-opacity="0.62" />
+<circle cx="790" cy="176" r="4.5" stroke="#22E0F5" stroke-opacity="0.58" />
+<circle cx="700" cy="774" r="4.5" stroke="#FF3DA6" stroke-opacity="0.55" />
+<circle cx="790" cy="436" r="4.5" stroke="#7C5CFF" stroke-opacity="0.62" />
+<circle cx="430" cy="410" r="4.5" stroke="#22E0F5" stroke-opacity="0.58" />
+<circle cx="430" cy="150" r="4.5" stroke="#FF3DA6" stroke-opacity="0.55" />
+<circle cx="790" cy="-32" r="4.5" stroke="#7C5CFF" stroke-opacity="0.62" />
+<circle cx="790" cy="644" r="4.5" stroke="#22E0F5" stroke-opacity="0.58" />
+<circle cx="700" cy="410" r="4.5" stroke="#FF3DA6" stroke-opacity="0.55" />
+<circle cx="610" cy="202" r="4.5" stroke="#7C5CFF" stroke-opacity="0.62" />
+<circle cx="520" cy="254" r="4.5" stroke="#22E0F5" stroke-opacity="0.58" />
+<circle cx="1120" cy="143" r="3.5" stroke="#FF3DA6" stroke-opacity="0.44" />
+<circle cx="1120" cy="597" r="3.5" stroke="#7C5CFF" stroke-opacity="0.50" />
+<circle cx="1120" cy="411" r="3.5" stroke="#22E0F5" stroke-opacity="0.46" />
+<circle cx="1080" cy="354" r="3.5" stroke="#FF3DA6" stroke-opacity="0.44" />
+<circle cx="1120" cy="180" r="3.5" stroke="#7C5CFF" stroke-opacity="0.50" />
+<circle cx="1120" cy="228" r="3.5" stroke="#22E0F5" stroke-opacity="0.46" />
+</g>
+</svg>

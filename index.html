@@ -1,124 +1,286 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Mainbrane</title>
-<meta name="description" content="Mainbrane - A beautiful hive mind. Explore innovation, technology, and creativity."/>
-<meta name="keywords" content="Mainbrane, technology, innovation, creativity, digital experiences"/>
-<meta name="author" content="King Ceo"/>
+<meta name="description" content="Mainbrane is the workspace of Kingson, a software engineer building systems that hold up — front to back." />
+<meta name="author" content="Kingson" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Lato&display=swap" rel="stylesheet" />
-<link href="style.css" rel="stylesheet"/>
-<link rel="icon" href="assets/mb_icon.ico" type="image/x-icon" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,400..800&family=Instrument+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,300..400&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="mb.css" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/mb_icon.ico" type="image/x-icon" />
 </head>
 <body>
-<header class="site-header">
-<div class="container header-flex">
-<div class="brand">
-  <img alt="Mainbrane logo" class="logo-image" src="assets/mb_logo.webp" loading="lazy" />
-  <a href="#hero" class="logo-link">
-    <h1 class="logo-text">Mainbrane</h1>
-  </a>
-</div>
-<div class="hamburger" id="hamburger">☰</div>
-<nav class="main-nav" id="mainNav" role="navigation">
-<a href="#about" aria-label="Navigate to About section">About</a>
-<a href="#vision-mission" aria-label="Navigate to Vision and Mission section">Vision</a>
-<!-- <a href="#divisions" aria-label="Navigate to Divisions section">Divisions</a>
-<a href="#projects" aria-label="Navigate to Projects section">Projects</a> -->
-<a href="#contact" aria-label="Navigate to Contact section">Contact</a>
-</nav>
-</div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="masthead" id="masthead">
+  <div class="masthead-inner">
+    <a class="mark" href="#top" aria-label="Mainbrane, back to top">
+      <svg class="mark-glyph" viewBox="0 0 256 256" width="28" height="28" aria-hidden="true" focusable="false"><path fill="currentColor" fill-rule="evenodd" d="M117.46 8.34C124.60 7.63 128.96 7.38 136.16 8.03C143.35 8.69 152.25 9.75 160.63 12.27C169.02 14.78 179.63 19.60 186.47 23.13C193.31 26.67 196.39 29.16 201.66 33.50C206.93 37.83 213.20 43.69 218.07 49.13C222.93 54.57 227.11 60.01 230.83 66.13C234.54 72.25 237.71 78.82 240.34 85.85C242.97 92.87 245.44 99.90 246.61 108.28C247.77 116.67 247.57 129.02 247.32 136.16C247.07 143.30 246.60 144.88 245.09 151.12C243.59 157.35 241.47 165.96 238.30 173.55C235.12 181.14 230.51 189.93 226.07 196.67C221.62 203.41 217.21 208.43 211.63 214.01C206.05 219.58 199.39 225.53 192.59 230.15C185.79 234.76 177.86 238.73 170.83 241.70C163.81 244.67 155.88 247.17 150.44 247.97C145.00 248.76 141.51 248.44 138.20 246.46C134.89 244.49 131.98 243.61 130.57 236.10C129.15 228.60 129.61 209.47 129.70 201.43C129.79 193.38 130.27 192.14 131.09 187.83C131.92 183.52 132.78 179.82 134.64 175.59C136.51 171.36 135.88 170.15 142.28 162.44C148.68 154.74 167.37 137.41 173.04 129.36C178.70 121.31 174.03 118.05 176.27 114.17C178.51 110.29 183.18 107.33 186.47 106.09C189.76 104.86 193.02 105.50 195.99 106.77C198.96 108.04 202.45 111.20 204.31 113.72C206.17 116.24 206.84 119.73 207.17 121.88C207.51 124.03 207.02 124.83 206.34 126.64C205.66 128.45 204.83 130.81 203.11 132.76C201.38 134.71 198.31 137.18 195.99 138.33C193.67 139.48 191.34 139.74 189.19 139.67C187.04 139.60 184.66 137.89 183.07 137.93C181.48 137.97 182.67 137.27 179.67 139.92C176.67 142.57 170.20 148.12 165.07 153.84C159.95 159.55 152.54 167.89 148.91 174.23C145.29 180.58 144.38 182.50 143.33 191.91C142.28 201.31 142.39 223.41 142.62 230.66C142.85 237.92 141.35 235.28 144.69 235.42C148.04 235.56 157.07 233.40 162.67 231.50C168.28 229.60 173.06 227.00 178.31 224.03C183.56 221.06 189.53 217.26 194.18 213.67C198.83 210.07 202.12 207.09 206.19 202.44C210.25 197.80 215.39 190.83 218.59 185.79C221.79 180.75 222.86 179.22 225.38 172.19C227.90 165.17 232.19 153.27 233.69 143.64C235.19 134.01 235.41 123.81 234.37 114.40C233.32 105.00 231.44 96.54 227.42 87.21C223.40 77.88 216.49 66.24 210.27 58.42C204.05 50.60 196.79 45.15 190.10 40.29C183.42 35.43 177.44 32.26 170.15 29.26C162.86 26.26 156.22 23.58 146.36 22.31C136.50 21.04 119.16 21.26 111.00 21.63C102.84 22.00 103.52 22.44 97.41 24.50C91.29 26.57 80.97 30.41 74.29 34.01C67.60 37.61 62.84 41.00 57.29 46.09C51.74 51.18 45.42 58.37 40.97 64.54C36.53 70.71 33.48 76.52 30.62 83.13C27.76 89.74 25.33 97.86 23.82 104.20C22.32 110.55 21.74 114.18 21.60 121.20C21.46 128.23 21.49 137.75 22.99 146.36C24.49 154.97 27.54 165.17 30.62 172.87C33.71 180.58 37.16 186.42 41.49 192.59C45.82 198.76 50.13 204.56 56.61 209.91C63.10 215.26 73.95 221.64 80.41 224.70C86.87 227.76 92.51 228.05 95.37 228.25C98.22 228.45 96.82 227.88 97.56 225.90C98.30 223.93 99.42 222.62 99.78 216.39C100.15 210.15 100.35 196.10 99.75 188.51C99.15 180.92 97.92 176.05 96.20 170.83C94.48 165.62 91.70 160.91 89.41 157.24C87.12 153.56 84.51 150.71 82.45 148.76C80.38 146.80 79.50 146.35 77.01 145.53C74.52 144.70 70.26 145.01 67.49 143.79C64.72 142.57 62.10 140.26 60.37 138.20C58.64 136.13 57.68 133.55 57.14 131.40C56.60 129.25 56.60 127.32 57.14 125.28C57.68 123.24 58.30 121.34 60.37 119.16C62.44 116.98 66.98 113.51 69.53 112.21C72.08 110.91 73.38 110.92 75.65 111.38C77.92 111.83 80.81 112.71 83.13 114.92C85.44 117.12 88.67 120.72 89.55 124.60C90.44 128.48 85.99 132.78 88.44 138.20C90.88 143.62 98.60 158.15 104.20 157.13C109.81 156.11 118.48 137.84 122.04 132.08C125.61 126.32 125.00 129.02 125.59 122.56C126.18 116.10 127.59 100.24 125.59 93.33C123.58 86.41 115.80 84.15 113.54 81.09C111.28 78.03 112.02 77.01 112.03 74.97C112.03 72.93 112.30 71.12 113.57 68.85C114.83 66.58 117.09 63.24 119.61 61.37C122.13 59.50 125.47 57.89 128.68 57.63C131.89 57.38 135.91 58.09 138.88 59.85C141.85 61.60 144.99 65.99 146.51 68.17C148.04 70.35 147.91 70.89 148.02 72.93C148.14 74.97 148.88 77.24 147.19 80.41C145.50 83.58 139.33 85.62 137.89 91.97C136.45 98.31 138.69 112.82 138.54 118.48C138.39 124.15 137.93 123.13 136.99 125.96C136.06 128.79 136.03 130.61 132.92 135.48C129.82 140.35 121.69 149.19 118.35 155.20C115.01 161.20 114.20 159.61 112.89 171.51C111.58 183.41 111.42 216.27 110.48 226.58C109.54 236.90 109.08 231.09 107.24 233.38C105.41 235.68 101.88 238.93 99.44 240.34C97.01 241.76 96.50 242.41 92.65 241.85C88.79 241.29 81.92 239.40 76.33 236.97C70.74 234.54 64.99 231.54 59.10 227.26C53.21 222.98 46.40 217.17 40.97 211.28C35.55 205.39 30.30 197.74 26.53 191.91C22.76 186.07 21.10 183.64 18.35 176.27C15.61 168.91 11.68 157.46 10.07 147.72C8.47 137.97 8.23 126.64 8.71 117.80C9.19 108.96 10.43 102.84 12.95 94.69C15.46 86.53 20.16 75.91 23.81 68.85C27.47 61.79 30.64 57.57 34.86 52.30C39.08 47.04 43.35 42.23 49.13 37.25C54.91 32.28 62.16 26.62 69.53 22.45C76.90 18.29 85.34 14.62 93.33 12.27C101.31 9.91 110.32 9.05 117.46 8.34ZM128.00 70.74C126.39 71.11 125.49 73.02 125.13 74.29C124.76 75.56 125.10 77.41 125.80 78.37C126.51 79.33 128.05 79.92 129.36 80.04C130.67 80.15 132.74 80.38 133.64 79.05C134.55 77.72 135.74 73.43 134.80 72.05C133.86 70.66 129.61 70.36 128.00 70.74ZM187.83 119.04C186.60 119.49 186.31 121.49 186.20 122.56C186.08 123.63 186.54 124.74 187.15 125.47C187.76 126.20 188.85 126.86 189.87 126.94C190.89 127.03 192.65 127.15 193.27 125.97C193.89 124.79 194.49 121.00 193.58 119.84C192.68 118.69 189.06 118.58 187.83 119.04ZM70.89 125.16C69.71 125.72 69.37 127.64 69.26 128.68C69.14 129.72 69.02 130.89 70.20 131.40C71.38 131.91 75.31 132.73 76.33 131.71C77.35 130.69 77.24 126.37 76.34 125.28C75.43 124.19 72.07 124.59 70.89 125.16Z"/></svg>
+      <span class="mark-word">Mainbrane</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+
+    <nav class="nav" id="primaryNav" aria-label="Primary">
+      <a href="#creator">Creator</a>
+      <a href="#creation">Creation</a>
+      <a href="#work">Work</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
-<section class="hero" id="hero">
-  <h1>Mainbrane</h1>
-  <p class="tagline">The future written in thought and code</p>
-  <p class="subtagline">An evolving system of ideas.</p>
-  <a href="#vision-mission" class="cta-button">Explore the Vision</a>
-</section>
-<section class="about-kingceo" id="about">
-  <div class="container">
-    <div class="profile">
-      <img alt="King Ceo's Profile Picture" class="profile-image" src="assets/kingceo.webp" />
-      <div class="profile-text">
-<h2>About Me</h2>
-<blockquote>"Mind sharp as syntax, coded in clarity."</blockquote>
-<p>I'm a software developer dedicated to building robust, scalable digital products.<br/>
-Bridging front-end and back-end systems, I transform complex ideas into well-structured, reliable solutions.
-My approach prioritizes strong engineering practices in both code and system design, emphasizing simplicity, precision, and continuous improvement.<br/>
-<p><em>Mainbrane</em> serves as my workspace to design, build, and iterate on projects that explore modern interfaces, intelligent systems, and thoughtful architecture.</p>
-</div>
-<p class="signature"><strong>Kingson</strong><br/><em>Software Engineer</em></p>
-</div>
-</div>
-</section>
-<section class="about-mainbrane" id="about-mainbrane">
-<div class="container">
-<h2>About Mainbrane</h2>
-<p>Mainbrane is not just a brand, it's the living blueprint of a limitless mind.
-<p>A digital ecosystem where creativity and technology converge, a space where curiosity meets code and intuition meets innovation.</p>
-<p>Born from thought. Built through experience.</p>
-It is a system designed to scale with time; rooted in simplicity, sharpened by complexity, driven by the belief that the future is not just imagined—it’s engineered.</p>
-<p class="tagline">Writing the future in clean lines of logic.</p>
-</div>
-</section>
-<section class="vision-mission" id="vision-mission">
-<div class="container">
-<h2>Vision & Mission</h2>
-<div class="vision">
-<h3>Vision</h3>
-<p>To build a connected future where technology empowers the human experience.</p>
-</div>
-<div class="mission">
-<h3>Mission</h3>
-<p>To create bold digital experiences and tools that reflect intellect, identity, and innovation.</p>
-</div>
-</div>
-</section>
-<!-- <section class="divisions" id="divisions">
-<div class="container">
-<h2>Mainbrane Divisions</h2>
-<ul>
-<li><strong>MB Tech:</strong> Software &amp; Systems</li>
-<li><strong>MB Creatives:</strong> Music, Writing, Storytelling</li>
-<li><strong>MB Labs:</strong> Research &amp; Exploration</li>
-<li><strong>MB Design:</strong> Design &amp; Experience</li>
-</ul>
-</div>
-</section>
-<section class="projects" id="projects">
-<div class="container">
-<h2>Projects</h2>
-<p>Coming soon... Stay tuned for innovative projects in technology, design, and storytelling that reflect the Mainbrane vision.</p>
-</div>
-</section> -->
-<section class="contact" id="contact">
-<div class="container">
-<h2>Contact</h2>
-<!-- <p class="contact-info">For inquiries, please reach out via email or connect on LinkedIn.</p>
-<p class="social-media">Follow us on social media for updates and insights.</p> -->
-<p>Email: <a href="mailto:heymcking@gmail.com" target="_blank">heymcking@gmail.com</a></p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/kingceo" target="_blank">kingceo</a></p>
-<!-- <p>LinkedIn: <a href="https://www.linkedin.com/company/mainbrane" target="_blank">mainbrane</a></p> -->
-<p>Instagram: <a href="https://www.instagram.com/4mcking" target="_blank">@4mcking</a></p>
-<!-- <p>Instagram: <a href="https://www.instagram.com/mainbrane1" target="_blank">@mainbrane</a></p> -->
-<p>Twitter: <a href="https://twitter.com/4mcking" target="_blank">@4mcking</a></p>
-<!-- <p>Twitter: <a href="https://twitter.com/mainbrane" target="_blank">@mainbrane</a></p> -->
-<p>GitHub: <a href="https://www.github.com/4mcking" target="_blank">4mcking</a></p>
-</div>
-</section>
-<footer class="site-footer">
-<div class="container">
-<p>Designed by mental computations — © 2025 <!-- <span id="year"></span> --> Mainbrane Ltd.</p>
-<p class="footer-tagline">A beautiful hive mind. All rights reserved.</p>
-</div>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="shell hero-shell">
+      <p class="eyebrow reveal">Software engineer · Mainbrane Ltd.</p>
+
+      <div class="brane-block reveal">
+        <h1 class="wordmark">Mainbrane</h1>
+      </div>
+
+      <p class="lede reveal">
+        Transforming ideas into systems with simplicity and precision.
+      </p>
+
+      <div class="actions reveal">
+        <a class="btn btn-solid" href="mailto:heymcking@gmail.com">Start a conversation</a>
+        <a class="btn btn-quiet" href="#creation">What Mainbrane is</a>
+      </div>
+
+      <div class="etymology reveal">
+        <p class="etymology-formula">
+          Mainframe <span class="op" aria-hidden="true">+</span> Membrane <span class="op" aria-hidden="true">=</span> Mainbrane
+        </p>
+        <p class="etymology-gloss" data-typewriter>An evolving system of ideas,
+          <span class="gloss-tail">written in thought and code.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Creator and creation share one spine: the brane runs from one into the other -->
+  <section class="dyad" id="creator">
+    <div class="shell dyad-shell">
+      <span class="spine" aria-hidden="true"></span>
+
+      <article class="movement">
+        <p class="label"><span class="node" aria-hidden="true"></span>The creator</p>
+
+        <div class="creator-grid">
+          <figure class="portrait">
+            <img src="assets/kingceo.webp" alt="King Ceo" width="180" height="180" />
+            <figcaption>
+              <strong>King Ceo</strong>
+              <span>Software Engineer</span>
+            </figcaption>
+          </figure>
+
+          <div class="prose">
+            <blockquote class="pull" data-typewriter>Mind sharp as syntax, coded in clarity.</blockquote>
+            <p>
+              I'm a software developer dedicated to building innovative digital
+              products. Bridging front-end and back-end systems, I turn complex
+              ideas into well-structured, reliable solutions.
+            </p>
+            <p>
+              My approach prioritizes strong engineering practices in both code and
+              system design, emphasizing simplicity, precision, and continuous
+              improvement.
+            </p>
+            <p>
+              Mainbrane serves as my workspace to design, build, and iterate on projects 
+              that explore modern interfaces, intelligent systems, and thoughtful architecture.
+          </div>
+        </div>
+      </article>
+
+      <article class="movement" id="creation">
+        <p class="label"><span class="node node-mid" aria-hidden="true"></span>The creation</p>
+
+        <div class="creation-grid">
+          <div class="prose prose-wide">
+            <p class="statement">
+              Mainbrane is not just a brand, it's the living blueprint of a limitless mind.
+            </p>
+            <p>
+              A digital ecosystem where creativity and technology converge — a space where 
+              curiosity meets code and intuition meets innovation. Born from thought. Built
+              through experience.
+            </p>
+            <p>
+              It is a system designed to scale with time; rooted in simplicity, sharpened
+              by complexity, driven by the belief that the future is not just imagined — it's
+              engineered.
+            </p>
+          </div>
+
+          <figure class="essence">
+            <img src="assets/bhm-brain.webp"
+                 alt="A brain rendered as glowing circuitry against a starfield — the Mainbrane emblem."
+                 width="900" height="1350" loading="lazy" />
+          </figure>
+        </div>
+
+        <dl class="tenets">
+          <div class="tenet">
+            <dt>Vision</dt>
+            <dd>To build a connected future where technology empowers the human experience.</dd>
+          </div>
+          <div class="tenet">
+            <dt>Mission</dt>
+            <dd>To create bold digital experiences and tools that reflect intellect, identity, and innovation.</dd>
+          </div>
+        </dl>
+
+        <p class="closer" data-typewriter>Writing the future in clean lines of logic.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="work" id="work">
+    <div class="shell">
+      <p class="label"><span class="node node-end" aria-hidden="true"></span>Selected work</p>
+      <h2 class="section-title">Things I've built</h2>
+
+      <ul class="projects">
+<li class="project">
+          <h3>Café Fausse</h3>
+          <p>
+            A web app for a fine-dining Italian restaurant brand, built as a complete
+            user experience around the menu, chefs and booking flow.
+          </p>
+          <p class="stack">React · Vercel</p>
+          <a class="project-link" href="https://cafe-fausse-iota.vercel.app/" target="_blank" rel="noopener">
+            View project <span aria-hidden="true">→</span>
+          </a>
+        </li>
+
+<li class="project">
+          <h3>Rich Media Gallery</h3>
+          <p>
+            A live showcase of interactive ad formats for Dochase — 3D cube and prism
+            units, parallax, gamified and shoppable creatives — running campaigns for
+            brands including MTN, Milo and Colgate.
+          </p>
+          <p class="stack">HTML · CSS · JavaScript</p>
+          <a class="project-link" href="https://dochase.com/creative-gallery.html" target="_blank" rel="noopener">
+            View project <span aria-hidden="true">→</span>
+          </a>
+        </li>
+
+<li class="project">
+          <h3>ML Malware Detector</h3>
+          <p>
+            Classifies Windows executables as malicious or benign from 25 static PE
+            header features — no execution required. Takes single lookups or CSV batches
+            and reports accuracy against labelled data.
+          </p>
+          <p class="stack">Python · Machine learning</p>
+          <a class="project-link" href="https://malware-detection-5eix.onrender.com/" target="_blank" rel="noopener">
+            View project <span aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="writing">
+        I also write about the thinking behind this —
+        <a href="https://kingceo.medium.com/what-is-mainbrane-6d6130032ea5" target="_blank" rel="noopener">
+          Mainbrane, a beautiful hive mind <span aria-hidden="true">→</span>
+        </a>
+      </p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="shell">
+      <p class="label"><span class="node node-end" aria-hidden="true"></span>The open channel</p>
+      <h2 class="section-title">Start something</h2>
+
+      <!-- Brand marks are inlined (Simple Icons, CC0) so the page makes no extra
+           requests and the glyphs inherit currentColor. -->
+      <ul class="channels">
+        <li>
+          <a href="mailto:heymcking@gmail.com">
+            <svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm1.6 2L12 12.1 19.4 6H4.6ZM20 7.55l-7.38 6.07a1 1 0 0 1-1.24 0L4 7.55V18h16V7.55Z"/>
+            </svg>
+            <span class="channel-name">Email</span>
+            <span class="channel-value">heymcking@gmail.com</span>
+            <span class="channel-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/kingceo" target="_blank" rel="noopener">
+            <svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            <span class="channel-name">LinkedIn</span>
+            <span class="channel-value">kingceo</span>
+            <span class="channel-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.github.com/4mcking" target="_blank" rel="noopener">
+            <svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            <span class="channel-name">GitHub</span>
+            <span class="channel-value">4mcking</span>
+            <span class="channel-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/4mcking" target="_blank" rel="noopener">
+            <svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/>
+            </svg>
+            <span class="channel-name">Instagram</span>
+            <span class="channel-value">@4mcking</span>
+            <span class="channel-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://x.com/4mcking" target="_blank" rel="noopener">
+            <svg class="channel-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+            </svg>
+            <span class="channel-name">Twitter</span>
+            <span class="channel-value">@4mcking</span>
+            <span class="channel-arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="colophon">
+  <div class="shell colophon-inner">
+    <p>Designed by mental computations — © <span id="year">2025</span> Mainbrane Ltd.</p>
+    <p class="colophon-tag">A beautiful hive mind.</p>
+  </div>
 </footer>
 
-<button id="scrollToTop" class="scroll-to-top" aria-label="Scroll to top">↑</button>
+<div class="scroll-jump" id="scrollJump">
+  <button type="button" class="jump-btn" data-jump="top" aria-label="Scroll to top">
+    <span aria-hidden="true">&#8593;</span>
+  </button>
+  <button type="button" class="jump-btn" data-jump="bottom" aria-label="Scroll to bottom">
+    <span aria-hidden="true">&#8595;</span>
+  </button>
+</div>
 
-<script src="main.js" defer></script>
+<script src="mb.js" defer></script>
 </body>
 </html>

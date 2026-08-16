@@ -1,0 +1,23 @@
+# Source artwork kept locally — the shipped site loads the compressed derivatives
+# (bhm-brain.webp). Re-derive with Pillow if an original is ever needed again.
+assets/bhm-brain.png
+assets/mb-logo-ideas/
+
+# Superseded by the traced vector mark and the webp derivatives. Still on disk and
+# still in git history before this commit, just no longer shipped.
+assets/mb_logo.webp
+assets/mb_logo_small.webp
+assets/kingceo.png
+
+# Design working documents, not part of the deployed site
+logo-exploration.html
+
+# Scratch files used while iterating (probes, render harnesses)
+_*.html
+
+# OS / tooling noise
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc
